@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+
+/* GENERALS */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* PRIMARY COLORS */
+  --color-soft-orange: hsl(35, 77%, 62%);
+  --color-soft-red: hsl(5, 85%, 63%);
+
+  /* NEUTRAL COLORS */
+  --off-white: hsl(36, 100%, 99%);
+  --color-grayish-blue: hsl(233, 8%, 79%);
+  --color-dark-grayish-blue: hsl(236, 13%, 42%);
+  --color-very-dark-blue: hsl(240, 100%, 5%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  display: grid;
+  place-content: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: var(--off-white);
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    padding: 5rem;
+    grid-template-areas:
+      "header header header"
+      "mainImage mainImage newsSection"
+      "mainTitle mainP newsSection"
+      "gamingSection gamingSection gamingSection";
+    gap: 2rem;
+  }
+  .header-container {
+    grid-area: header;
+  }
+  .main-image {
+    grid-area: mainImage;
+  }
+  .main-title {
+    grid-area: mainTitle;
+  }
+  .main-content {
+    grid-area: mainP;
+  }
+  .news-container {
+    grid-area: newsSection;
+  }
+  .gaming-container {
+    grid-area: gamingSection;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+/* UTILITIES */
+
+/* HEADER */
+.header-container {
+  margin-bottom: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.nav-logo {
+  max-width: 52px;
+}
+
+#nav-list {
+  display: none;
+  gap: 3rem;
+}
+#nav-list li a {
+  text-decoration: none;
+  color: var(--color-dark-grayish-blue);
+}
+#nav-list li a:hover {
+  text-decoration: none;
+  color: var(--color-grayish-blue);
+}
+
+#burger-menu {
+  width: 100%;
+}
+#burger {
+  display: block;
+}
+#burger-close {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  #burger.close {
+    display: none;
+  }
+  #burger-close.close {
+    display: none;
+  }
+  #burger-close.show {
+    display: block;
+  }
+  #nav-list.show {
+    display: flex;
+    width: 100%;
+    margin: 1rem 0;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap column;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #nav-list {
+    display: flex;
+  }
+  #burger {
+    display: none;
+  }
+  #burger-close {
+    display: none;
+  }
+}
+
+/* MAIN */
+
+.main-image {
+  margin-bottom: 1.5rem;
+  background-image: url(assets/images/image-web-3-mobile.jpg);
+  max-width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 260px;
+}
+@media screen and (min-width: 1024px) {
+  .main-image {
+    background-image: url(assets/images/image-web-3-desktop.jpg);
+  }
+}
+.main-title {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+.main-content {
+  margin-bottom: 6rem;
+}
+.main-content p {
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+.main-content button {
+  color: var(--off-white);
+  background-color: var(--color-soft-red);
+  outline: none;
+  border: none;
+  padding: 1.3rem 2.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  cursor: pointer;
+}
+
+/* NEWS SECTION */
+.news-container {
+  background-color: var(--color-very-dark-blue);
+  margin-bottom: 5rem;
+  padding: 2rem;
+}
+.news-container h2 {
+  color: var(--color-soft-orange);
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
+.news-container-item h3 {
+  color: var(--off-white);
+  margin-bottom: 1rem;
+}
+.news-container-item p {
+  color: var(--color-dark-grayish-blue);
+}
+.separators {
+  margin: 3.5rem 0;
+  border-color: var(--color-grayish-blue);
+  border-width: 0;
+  border-top-width: 0.1px;
+}
+
+/* GAMING SECTION */
+.gaming-container {
+  display: flex;
+  flex-flow: wrap column;
+  gap: 2rem;
+}
+@media screen and (min-width: 1024px) {
+  .gaming-container {
+    flex-flow: nowrap row;
+  }
+}
+.gaming-container-item {
+  display: flex;
+  gap: 2rem;
+}
+.gaming-container-item img {
+  max-width: 120px;
+}
+.gaming-container-item div h2 {
+  color: var(--color-grayish-blue);
+  margin: 0 0 1rem 0;
+  font-size: 3rem;
+}
+.gaming-container-item div h3 {
+  margin: 0 0 1rem 0;
+}
+.gaming-container-item div p {
+  line-height: 1.5;
+}
